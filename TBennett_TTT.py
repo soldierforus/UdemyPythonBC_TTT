@@ -75,38 +75,40 @@ def getMove():
 def playA():
     print "\r\nYour move, ", p1
     n = getMove()
-    if n not in ('0','1','2','3','4','5','6','7','8'):
-        print "Please select a valid box number"
-        n = getMove()
-    elif game[int(n)] != '':
-        print "Sorry, that box is already taken"
-        n = getMove()
-    else:
-        game[(int(n))] = 'X'
-        board()
-        printBoard(game)
-        if not gameOver():
-            playB()
+    while True:
+        if n not in ('0','1','2','3','4','5','6','7','8'):
+            print "Please select a valid box number"
+            n = getMove()
+        if game[int(n)] != '':
+            print "Sorry, that box is already taken"
+            n = getMove()
         else:
-            sys.exit()
+            game[(int(n))] = 'X'
+            board()
+            printBoard(game)
+            if not gameOver():
+                playB()
+            else:
+                sys.exit()
                             
 def playB():
     print "\r\nYour move, ", p2
     n = getMove()
-    if n not in ('0','1','2','3','4','5','6','7','8'):
-        print "Please select a valid box number"
-        n = getMove()
-    elif game[int(n)] != '':
-        print "Sorry, that box is already taken"
-        n = getMove()
-    else:
-        game[(int(n))] = 'O'
-        board()
-        printBoard(game)
-        if not gameOver():
-            playA()
+    while True:
+        if n not in ('0','1','2','3','4','5','6','7','8'):
+            print "Please select a valid box number"
+            n = getMove()
+        if game[int(n)] != '':
+            print "Sorry, that box is already taken"
+            n = getMove()
         else:
-            sys.exit()
+            game[(int(n))] = 'O'
+            board()
+            printBoard(game)
+            if not gameOver():
+                playA()
+            else:
+                sys.exit()
             
     
 def start():
