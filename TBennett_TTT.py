@@ -1,3 +1,4 @@
+import sys
 game = ['','','','','','','','','']
 p1 = 'Player 1'
 p2 = 'Player 2'    
@@ -86,6 +87,8 @@ def playA():
         printBoard(game)
         if not gameOver():
             playB()
+        else:
+            sys.exit()
                             
 def playB():
     print "\r\nYour move, ", p2
@@ -101,7 +104,10 @@ def playB():
         board()
         printBoard(game)
         if not gameOver():
-            playA()            
+            playA()
+        else:
+            sys.exit()
+            
     
 def start():
     print "Hello, and welcome to Travis' first python project - Tic Tac Toe!\r\n \r\nThis version requires two human players. Player One will move first as X and Player Two will be O."        
