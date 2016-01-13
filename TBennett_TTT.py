@@ -75,7 +75,7 @@ def playAgain():
     game = ['','','','','','','','','']
     global again
     again == raw_input("Would you like to play again? (Y/N)")
-    if again == 'yes' or 'y' or 'Y' or 'YES':
+    if again in ('yes','y','Y','YES'):
         start()
     else: sys.exit()    
 
