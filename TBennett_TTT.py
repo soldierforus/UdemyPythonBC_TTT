@@ -2,7 +2,7 @@ import sys
 game = ['','','','','','','','','']
 p1 = 'Player 1'
 p2 = 'Player 2'    
-
+again = ''
 def board():
     print '''
   ___________
@@ -47,6 +47,7 @@ _/  |_|__| ____      _________    _____   ____
  |__| |__|\___  >  \___  (____  /__|_|  /\___  >
               \/  /_____/     \/      \/     \/ 
         '''
+        playAgain()
         
 def formatValue(val):
     return ' ' if val == '' else val
@@ -69,6 +70,15 @@ def printBoard(state):
 
 '''.format(board[0], board[1], board[2], board[3], board[4], board[5], board[6], board[7], board[8]);
     
+def playAgain():
+    global game
+    game = ['','','','','','','','','']
+    global again
+    again == raw_input("Would you like to play again? (Y/N)")
+    if again == 'yes' or 'y' or 'Y' or 'YES':
+        start()
+    else: sys.exit()    
+
 def getMove():
     return raw_input("Please select your corresponding square using 0,1,2,3,4,5,6,7,8\r\n You selected: ")
     
@@ -89,7 +99,7 @@ def playA():
             if not gameOver():
                 playB()
             else:
-                sys.exit()
+                playAgain()
                             
 def playB():
     print "\r\nYour move, ", p2
@@ -108,7 +118,7 @@ def playB():
             if not gameOver():
                 playA()
             else:
-                sys.exit()
+                playAgain()
             
     
 def start():
